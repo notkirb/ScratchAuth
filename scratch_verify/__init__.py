@@ -7,13 +7,13 @@ __all__ = ["create_code", "verify_code"]
 
 def create_code() -> str:
 	"""
-	Generate a verification code for the user to provide at https://scratch.mit.edu/projects/440710593. This is just a convenience method - you can use any numerical code.
+	Generate a verification code for the user to provide at https://scratch.mit.edu/projects/802930818. This is just a convenience method - you can use any numerical code.
 
 	Returns:
-		A 6-digit number.
+		A 4-digit number.
 	"""
 
-	return "".join(secrets.choice(string.digits) for _ in range(6))
+	return "".join(secrets.choice(string.digits) for _ in range(4))
 
 def verify_code(username: str, code: str, completion_timeout: int = float("inf")) -> bool:
 	"""
@@ -29,7 +29,7 @@ def verify_code(username: str, code: str, completion_timeout: int = float("inf")
 	"""
 
 	cloud_data = requests.get("https://clouddata.scratch.mit.edu/logs", params={
-		"projectid": 440710593,
+		"projectid": 802930818,
 		"limit": 1000,
 		"offset": 0
 	}).json()
